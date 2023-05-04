@@ -1,0 +1,84 @@
+# Easy Gamemode Switcher
+# Version 1.0
+
+# Adds commands /gm, /gms, /gmc, /gma, and /gmsp
+# Please check the README file for more information.
+
+command /gm [<integer>] [<player>]:
+    usage: &eUsage: &6/gm <0-3> [<player>]
+    trigger:
+        if arg-1 is not set:
+            send "&eUsage: &6/gm <0-3> [<player>]"
+        if arg-1 < 0:
+            send "&eUsage: &6/gm <0-3> [<player>]"
+        if arg-1 > 3:
+            send "&eUsage: &6/gm <0-3> [<player>]"
+        if arg-1 is 0:
+            if arg-2 is set:
+                set gamemode of %arg-2% to survival
+                send "&e%arg-2%'s gamemode has been set to &6Survival&e."
+            else:
+                set gamemode of player to survival
+                send "&eYour gamemode has been set to &6Survival&e."
+        if arg-1 is 1:
+            if arg-2 is set:
+                set gamemode of %arg-2% to creative
+                send "&e%arg-2%'s gamemode has been set to &6Creative&e."
+            else:
+                set gamemode of player to creative
+                send "&eYour gamemode has been set to &6Creative&e."
+        if arg-1 is 2:
+            if arg-2 is set:
+                set gamemode of %arg-2% to adventure
+                send "&e%arg-2%'s gamemode has been set to &6Adventure&e."
+            else:
+                set gamemode of player to adventure
+                send "&eYour gamemode has been set to &6Adventure&e."
+        if arg-1 is 3:
+            if arg-2 is set:
+                set gamemode of %arg-2% to spectator
+                send "&e%arg-2%'s gamemode has been set to &6Spectator&e."
+            else:
+                set gamemode of player to spectator
+                send "&eYour gamemode has been set to &6Spectator&e."
+
+
+command /gms [<player>]:
+    usage: &eUsage: &e/gms [<player>]
+    trigger:
+        if arg-1 is not set:
+            set gamemode of %player% to survival
+            send "Your gamemode has been set to &6Survival&e."
+        else:
+            set gamemode of %arg-1% to survival
+            send "&e%arg-1%'s gamemode has been set to &6Survival&e."
+
+command /gmc [<player>]:
+    usage: &eUsage: &e/gmc [<player>]
+    trigger:
+        if arg-1 is not set:
+            set gamemode of %player% to creative
+            send "Your gamemode has been set to &6Creative&e."
+        else:
+            set gamemode of %arg-1% to creative
+            send "&e%arg-1%'s gamemode has been set to &6Creative&e."
+
+command /gma [<player>]:
+    usage: &eUsage: &e/gma [<player>]
+    trigger:
+        if arg-1 is not set:
+            set gamemode of %player% to adventure
+            send "Your gamemode has been set to &6Adventure&e."
+        else:
+            set gamemode of %arg-1% to adventure
+            send "&e%arg-1%'s gamemode has been set to &6Adventure&e."
+
+command /gmsp [<player>]:
+    usage: &eUsage: &e/gmsp [<player>]
+    trigger:
+        if arg-1 is not set:
+            set gamemode of %player% to spectator
+            send "Your gamemode has been set to &6Spectator&e."
+        else:
+            set gamemode of %arg-1% to spectator
+            send "&e%arg-1%'s gamemode has been set to &6Spectator&e."
